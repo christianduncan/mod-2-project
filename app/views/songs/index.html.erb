@@ -1,0 +1,17 @@
+<h1>All Songs</h1>
+
+<%if flash[:notice]%>
+  <%="#{flash[:notice]}"%>
+<% end %>
+
+<h3>Search for Song</h3>
+<%= form_tag(songs_path, method: :get) do %>
+  <%= label_tag(:search, "Song name:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<ul>
+<%@songs.each do |song|%>
+  <li><%= link_to "#{song.name} - #{song.artist}", song %></li>
+<% end %>
+</ul>
