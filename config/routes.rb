@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get "/", to: "application#index", as: "index"
 
   # User Routes
-  get "/users", to: "users#index", as: "users"
+  
+  resources :users
+  patch '/users/:id/follow', to: 'users#follow', as: 'follow'
+  
+  
+  
 
 
 
