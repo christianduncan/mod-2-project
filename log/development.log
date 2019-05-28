@@ -981,3 +981,55 @@ Processing by SongsController#index as HTML
 Completed 200 OK in 223ms (Views: 14.5ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/" for ::1 at 2019-05-28 15:29:23 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 376ms (Views: 190.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 15:29:29 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 39ms (Views: 29.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=Drunk+in+Love&commit=Search" for ::1 at 2019-05-28 15:29:43 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Drunk in Love", "commit"=>"Search"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? LIMIT ?[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/song.rb:14
+  [1m[36mSong Create (0.9ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["created_at", "2019-05-28 19:29:43.662022"], ["updated_at", "2019-05-28 19:29:43.662022"]]
+  ↳ app/models/song.rb:14
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/song.rb:14
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 333ms (Views: 14.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-28 15:34:15 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 398ms (Views: 211.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 15:34:21 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 35ms (Views: 25.7ms | ActiveRecord: 0.7ms)
+
+
