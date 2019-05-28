@@ -1,0 +1,7 @@
+<h1>All Playlists</h1>
+
+<ul>
+<%@playlists.each do |playlist|%>
+  <li><%= link_to "#{playlist.name} - #{playlist.user.username}", playlist %></li>
+<% end %>
+</ul>

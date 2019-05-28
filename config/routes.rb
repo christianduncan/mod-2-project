@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   
   
   
-
+  # Playlist Routes
+  patch "/playlists/:id/add_song", to: "playlists#add_song", as: "add_song"
+  resources :playlists
 
 
 
