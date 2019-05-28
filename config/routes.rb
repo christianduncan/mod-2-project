@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   # User Routes
   
   resources :users
+  patch '/users/:id/follow', to: 'users#follow', as: 'follow'
+  
+  
 end

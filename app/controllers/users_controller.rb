@@ -10,29 +10,38 @@ class UsersController < ApplicationController
 
     #create user
     def create 
-        @user = User.new(user_params)
-        if @user.valid?
-            @user.save
-            flash.now[:notice] = 'User Successfully Created'
-            redirect_to user_path(@user)
-        else
-            flash.now[:notice] = @user.full_messages[0]
-            render :new 
-        end 
+        @user = User.create(user_params)
+        redirect_to user_path(@user)
+
     end 
 
 
     def show
-        @user = find_user
+        @user = User.find(params[:id])
+        @followers = @user.followers 
+        @followees = @user.followees 
+        @not_following = @user.not_following
+        
     end
 
+
+
     def edit 
-        @user = find_user
+        @user = User.find(params[:id])
+        
     end 
 
-    def update 
-        @user = find_user 
+    def update
+        @user = User.find(params[:id])
+        
         @user.update(user_params)
+        redirect_to user_path(@user)
+    end 
+
+    def follow
+        @user = User.find(params[:id])
+        
+        User.find_by(user_params).followers << @user
         redirect_to user_path(@user)
     end 
 

@@ -1,3 +1,23 @@
 <h1><%=@user.username%></h1>
 
-<%= button_to "Delete #{@user.username}",@user,method: 'delete'%>
+<%= button_to "Delete #{@user.username}",@user,method: 'delete'%> <br>
+<%= button_to "Edit #{@user.username}",edit_user_path(@user),method: 'get'%>
+
+<h2>Your followers are</h2>
+<% @followers.each do |follower| %>
+  <p><%= follower.username %></p>
+<% end %>
+​
+<h2>You follow</h2>
+<% @followees.each do |followee| %>
+  <p><%= followee.username %></p>
+<% end %>
+​
+<h2>You don't follow</h2>
+<% @not_following.each do |user| %>
+  <p><%= user.username %></p> 
+  <%= form_for user, url: { action: "follow" } do |f| %>
+    <%= f.hidden_field :username %>
+    <%= f.submit "Add Friend" %>
+  <% end %>
+<% end %>
