@@ -1,0 +1,10 @@
+<%if flash[:notice]%>
+<h3><%=flash[:notice]%> </h3>
+<%end%>
+
+<h1>New User Form</h1>
+<%= form_for (@user) do |f| %>
+<%= f.label :username%>
+<%= f.text_field :username%>
+<%= f.submit %>
+<%end%>
