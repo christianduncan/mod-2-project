@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_145905) do
+ActiveRecord::Schema.define(version: 2019_05_28_200149) do
 
   create_table "follows", force: :cascade do |t|
     t.integer "follower_id"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_145905) do
     t.string "artist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "album_url"
+    t.string "album"
   end
 
   create_table "users", force: :cascade do |t|
