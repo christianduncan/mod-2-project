@@ -1,8 +1,8 @@
-<h1><%=@user.username%></h1>
-
+<h1 class="rainbow"><%=@user.username.capitalize%>'s Hotify Profile</h1>
+<div>
 <%= button_to "Delete #{@user.username}",@user,method: 'delete'%> <br>
 <%= button_to "Edit #{@user.username}",edit_user_path(@user),method: 'get'%>
-
+</div>
 <h2>Your followers are</h2>
 <% @followers.each do |follower| %>
   <p><%= follower.username %></p>
