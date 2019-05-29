@@ -8287,3 +8287,1499 @@ Processing by PlaylistsController#show as HTML
 Completed 200 OK in 31ms (Views: 27.6ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/playlists/1/edit" for ::1 at 2019-05-29 09:04:46 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PlaylistsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.5ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:57
+  Rendering playlists/edit.html.erb within layouts/application
+  Rendered playlists/edit.html.erb within layouts/application (28.6ms)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    4: <%=f.label :name%>
+    5: <%=f.text_field :name %> <br>
+    6: <%=f.label :user_id%>
+    7: <%=f.collection_select :user_id, @users, :id, :username, prompt: true %> <br>
+    8: <%=f.submit "Update Playlist"%>
+    9:   
+   10: <% end %>
+  
+app/views/playlists/edit.html.erb:7:in `block in _app_views_playlists_edit_html_erb___99379867234476121_70151105110900'
+app/views/playlists/edit.html.erb:3:in `_app_views_playlists_edit_html_erb___99379867234476121_70151105110900'
+Started GET "/playlists/1/edit" for ::1 at 2019-05-29 09:05:03 -0400
+Processing by PlaylistsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:58
+  Rendering playlists/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/playlists/edit.html.erb:7
+  Rendered playlists/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 226ms (Views: 212.0ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/playlists/1" for ::1 at 2019-05-29 09:05:09 -0400
+Processing by PlaylistsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f/CbZkbaBo0Y5YKgYEPeR9BxNg99/gfzX4AZdqicv7jOYEQFlMmYALTW89N5tIGDW99/CRjRj4DY2LyqGF5iBw==", "playlist"=>{"name"=>"Home Again", "user_id"=>"1"}, "commit"=>"Update Playlist", "id"=>"1"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:58
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlists_controller.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:42
+  [1m[36mPlaylist Update (0.6ms)[0m  [1m[33mUPDATE "playlists" SET "name" = ?, "updated_at" = ? WHERE "playlists"."id" = ?[0m  [["name", "Home Again"], ["updated_at", "2019-05-29 13:05:09.115427"], ["id", 1]]
+  ↳ app/controllers/playlists_controller.rb:42
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlists_controller.rb:42
+Redirected to http://localhost:3000/playlists/1
+Completed 302 Found in 22ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:05:09 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:58
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 42ms (Views: 26.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:07:47 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (17.2ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"playlists", :id=>"1"}):
+    18:   <%= submit_tag("Add Song to Playlist") %>
+    19: <% end %>
+    20: 
+    21: <%= button_to "Delete", action: "delete" %>
+  
+app/views/playlists/show.html.erb:21:in `_app_views_playlists_show_html_erb___3483445439780517086_70151110827280'
+Started GET "/rails/info/routes" for ::1 at 2019-05-29 09:08:39 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [26 times] (13.5ms)
+  Rendered /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:09:01 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (20.3ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"delete", :controller=>"playlists", :id=>"1"}):
+    18:   <%= submit_tag("Add Song to Playlist") %>
+    19: <% end %>
+    20: 
+    21: <%= button_to "Delete", action: "delete" %>
+  
+app/views/playlists/show.html.erb:21:in `_app_views_playlists_show_html_erb___3483445439780517086_70151137548360'
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:09:23 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"destory", :controller=>"playlists", :id=>"1"}):
+    18:   <%= submit_tag("Add Song to Playlist") %>
+    19: <% end %>
+    20: 
+    21: <%= button_to "Delete", action: "destory" %>
+  
+app/views/playlists/show.html.erb:21:in `_app_views_playlists_show_html_erb___3483445439780517086_70151138113980'
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:12:41 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:12:50 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 40ms (Views: 35.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/playlists/1?method=destory" for ::1 at 2019-05-29 09:12:53 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/playlists/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:15:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 199ms (Views: 166.0ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/playlists/1" for ::1 at 2019-05-29 09:15:40 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/playlists/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/playlists/1" for ::1 at 2019-05-29 09:16:42 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/playlists/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:16:45 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 1]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/playlists/1" for ::1 at 2019-05-29 09:16:47 -0400
+Processing by PlaylistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9ZSvPdDCYIhc9GTplt0S2JqVph914WfMcqcm9Kw5a7NEBHBeAtH+BfDHFZqPKk0cETvvGRDO77/1/4MoHPu2DA==", "id"=>"1"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlists_controller.rb:50
+  [1m[36mPlaylist Destroy (2.4ms)[0m  [1m[31mDELETE FROM "playlists" WHERE "playlists"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/playlists_controller.rb:50
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlists_controller.rb:50
+Redirected to http://localhost:3000/playlists
+Completed 302 Found in 7ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/playlists" for ::1 at 2019-05-29 09:16:47 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:16:48 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:65
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:35:06 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:66
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/playlists_controller.rb:59
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 14736ms (Views: 179.7ms | ActiveRecord: 3.7ms)
+
+
+Started PATCH "/playlists/2/add_song" for ::1 at 2019-05-29 09:35:29 -0400
+Processing by PlaylistsController#add_song as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3PmRahIl5xMMEc6zOZx1bAiRqDVyrCd59LymMQrejXxtaU4JwDZ5nqAiv8Agayqogz/hMxeDrwpz5APtuhxQww==", "search"=>"Princes", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.6ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:66
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 0.6ms)
+
+
+  
+RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
+  
+app/models/song.rb:9:in `search'
+app/controllers/playlists_controller.rb:21:in `add_song'
+Started GET "/" for ::1 at 2019-05-29 09:35:37 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 184ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists/1" for ::1 at 2019-05-29 09:35:42 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:66
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Playlist with 'id'=1):
+  
+app/controllers/playlists_controller.rb:66:in `find_playlist'
+app/controllers/playlists_controller.rb:56:in `show'
+Started GET "/playlists" for ::1 at 2019-05-29 09:35:44 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.4ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:35:46 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:66
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 6413ms (Views: 21.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/playlists/2/add_song" for ::1 at 2019-05-29 09:35:59 -0400
+Processing by PlaylistsController#add_song as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ja823rlPkQqIXaH+IcGfL1yd9cGH3szU8WN1pLm+WI1Fv3O66wwCERfMZD4Ht3Ebr8NTjJLRrB+1SNHCE8LV5g==", "search"=>"Princes", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:66
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "Two Princes"], ["artist", "Spin Doctors"], ["album_url", "https://i.scdn.co/image/520c026bee959fbe868424b9c4506cf33ebc59e2"], ["album", "Pocket Full Of Kryptonite"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/song.rb:13
+  [1m[36mSong Create (1.2ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at", "album_url", "album") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Two Princes"], ["artist", "Spin Doctors"], ["created_at", "2019-05-29 13:36:00.155885"], ["updated_at", "2019-05-29 13:36:00.155885"], ["album_url", "https://i.scdn.co/image/520c026bee959fbe868424b9c4506cf33ebc59e2"], ["album", "Pocket Full Of Kryptonite"]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/song.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlists_controller.rb:23
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:23
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:23
+  [1m[36mPlaylistsong Create (0.3ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 7], ["created_at", "2019-05-29 13:36:00.169550"], ["updated_at", "2019-05-29 13:36:00.169550"]]
+  ↳ app/controllers/playlists_controller.rb:23
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlists_controller.rb:23
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 208ms (Views: 33.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:36:11 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:66
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/playlists_controller.rb:59
+  [1m[36mSong Load (2.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? ORDER BY "songs"."id" ASC LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ? LIMIT ?[0m  [["song_id", 7], ["LIMIT", 11]]
+  ↳ app/controllers/playlists_controller.rb:59
+Started GET "/playlists/2/add_song" for ::1 at 2019-05-29 09:49:18 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/playlists/2/add_song"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:49:28 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 10105ms (Views: 239.8ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 09:50:17 -0400
+  
+ActionController::RoutingError (uninitialized constant PlaylistsongsController):
+  
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `block in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:79:in `rescue in load_missing_constant'
+bootsnap (1.4.4) lib/bootsnap/load_path_cache/core_ext/active_support.rb:58:in `load_missing_constant'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 09:51:21 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kD5S078LQSkVw/OTN1ptpA4z47RmekTlTBTfN3HED+ghro2wbRjfpLnwguAurTJghZ2qsgNVzJbLTHrrwQbSVw==", "search"=>"The Night We Met", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 0.5ms)
+
+
+  
+RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
+  
+app/models/song.rb:9:in `search'
+app/controllers/playlistsongs_controller.rb:5:in `create'
+Started GET "/" for ::1 at 2019-05-29 09:51:26 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 244ms (Views: 28.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists" for ::1 at 2019-05-29 09:51:33 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:51:34 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 3136ms (Views: 27.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 09:51:41 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fsc1UGF8+MGifv+l20FoMdn7e/LxwPFGNMxflTqJZatDKKAg5cLYAgFiyzAH3pKjFJNMQqjpTu/Nf5LOU8kalA==", "search"=>"The Night We Met", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "The Night We Met"], ["artist", "Lord Huron"], ["album_url", "https://i.scdn.co/image/c96ae980f06a58205ce0cf807eb58241cee8af8c"], ["album", "Strange Trails"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.0ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 2], ["created_at", "2019-05-29 13:51:41.433569"], ["updated_at", "2019-05-29 13:51:41.433569"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 206ms (Views: 36.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/playlistsongs/2" for ::1 at 2019-05-29 09:56:34 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/playlistsongs/2"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:57:03 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ? LIMIT ?[0m  [["song_id", 7], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  Rendered playlists/show.html.erb within layouts/application (26.5ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for #<Playlistsong::ActiveRecord_Associations_CollectionProxy:0x00007fa7cfcc4da8>
+Did you mean?  ids):
+     8: <ul>
+     9: <%@songs.each do |song|%>
+    10:   <li><%= link_to "#{song.name} - #{song.artist}", song %></li>
+    11:   <%=button_to "Remove Song from Playlist", "/playlistsongs/#{song.playlistsongs.id}", method: :delete %>
+    12: <% end %>
+    13: </ul>
+    14: 
+  
+app/views/playlists/show.html.erb:11:in `block in _app_views_playlists_show_html_erb__9195900758321775_70179360341560'
+app/views/playlists/show.html.erb:9:in `_app_views_playlists_show_html_erb__9195900758321775_70179360341560'
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:57:29 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? ORDER BY "songs"."id" ASC LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ? LIMIT ?[0m  [["song_id", 2], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ? LIMIT ?[0m  [["song_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/playlists_controller.rb:45
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "playlistsongs"."id" FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ?[0m  [["song_id", 2]]
+  ↳ (byebug):1
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "playlistsongs"."id" FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ?[0m  [["song_id", 7]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (18.6ms)
+Completed 500 Internal Server Error in 53786ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (bad URI(is not URI?): "/playlistsongs/[6]"):
+     8: <ul>
+     9: <%@songs.each do |song|%>
+    10:   <li><%= link_to "#{song.name} - #{song.artist}", song %></li>
+    11:   <%=button_to "Remove Song from Playlist", "/playlistsongs/#{song.playlistsongs.ids}", method: :delete %>
+    12: <% end %>
+    13: </ul>
+    14: 
+  
+app/views/playlists/show.html.erb:11:in `block in _app_views_playlists_show_html_erb__9195900758321775_70179361521500'
+app/views/playlists/show.html.erb:9:in `_app_views_playlists_show_html_erb__9195900758321775_70179361521500'
+Started GET "/playlists/2" for ::1 at 2019-05-29 09:58:29 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "playlistsongs"."id" FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ?[0m  [["song_id", 7]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (17.7ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (bad URI(is not URI?): "/playlistsongs/[6]"):
+     8: <ul>
+     9: <%@songs.each do |song|%>
+    10:   <li><%= link_to "#{song.name} - #{song.artist}", song %></li>
+    11:   <%=button_to "Remove Song from Playlist", "/playlistsongs/#{song.playlistsongs.ids}", method: :delete %>
+    12: <% end %>
+    13: </ul>
+    14: 
+  
+app/views/playlists/show.html.erb:11:in `block in _app_views_playlists_show_html_erb__9195900758321775_70179368931000'
+app/views/playlists/show.html.erb:9:in `_app_views_playlists_show_html_erb__9195900758321775_70179368931000'
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:00:22 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? ORDER BY "songs"."id" ASC LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."song_id" = ? LIMIT ?[0m  [["song_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/playlists_controller.rb:45
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:52:40 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? ORDER BY "songs"."id" ASC LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mPlaylistsong Load (0.4ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ (byebug):1
+  [1m[36mCACHE Playlistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ (byebug):1
+Started GET "/" for ::1 at 2019-05-29 10:55:44 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 405ms (Views: 229.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:55:53 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 7], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 7], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 74ms (Views: 50.4ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/playlistsongs/6" for ::1 at 2019-05-29 10:55:55 -0400
+Processing by PlaylistsongsController#delete as HTML
+  Parameters: {"authenticity_token"=>"8sN4LSsR5vCtO16FaeQ1syBXuZq9vle1IMVwHLfnXtVDU6dO+QJ4fQEIL/ZwE2p3q/nwnNiR38anndXAByWDag==", "id"=>"6"}
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:20
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:21
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[36mPlaylistsong Destroy (0.3ms)[0m  [1m[31mDELETE FROM "playlistsongs" WHERE "playlistsongs"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:22
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:55:55 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:56:02 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.3ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 10:56:10 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r72Eii+Y+qnMrzPzEIfj/rQb0PIZfwwocO6oiOgFjhMeLVvp/YtkJGCcQoAJcLw6P7WZ9HxQhFv3tg1UWMdTrA==", "search"=>"Rockstar", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "rockstar (feat. 21 Savage)"], ["artist", "Post Malone"], ["album_url", "https://i.scdn.co/image/77eb7c17cafe5502589602bd799134625caeb6f3"], ["album", "beerbongs & bentleys"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 3], ["created_at", "2019-05-29 14:56:10.842477"], ["updated_at", "2019-05-29 14:56:10.842477"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Redirected to 
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 2.3ms)
+
+
+  
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+NoMethodError (undefined method `playlists/show_url' for #<PlaylistsongsController:0x00007fb9dccb0028>
+Did you mean?  playlists_url):
+  
+app/controllers/playlistsongs_controller.rb:15:in `create'
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:56:43 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 87ms (Views: 54.3ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/playlistsongs/7" for ::1 at 2019-05-29 10:56:47 -0400
+Processing by PlaylistsongsController#delete as HTML
+  Parameters: {"authenticity_token"=>"23km/50ue3Ae6AVuxHewbAuuYIjQLChNluWK239KDOlq6fmcTz3l/bLbdB3dgO+ogAApjrUDoD4RvS8Hz4jRVg==", "id"=>"7"}
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:20
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:21
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[36mPlaylistsong Destroy (0.2ms)[0m  [1m[31mDELETE FROM "playlistsongs" WHERE "playlistsongs"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:22
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:56:47 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 3], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/playlistsongs/8" for ::1 at 2019-05-29 10:56:51 -0400
+Processing by PlaylistsongsController#delete as HTML
+  Parameters: {"authenticity_token"=>"v+24fF3Iz/3hwZw7JscVn4Ab0Y0ICtMyrNwQlPA9610OfWcfj9tRcE3y7Ug/MEpbC7WYi20lW0ErhLVIQP824g==", "id"=>"8"}
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:20
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[36mPlaylistsong Destroy (0.5ms)[0m  [1m[31mDELETE FROM "playlistsongs" WHERE "playlistsongs"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:22
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 9ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:56:51 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  Rendered playlists/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 10:56:56 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vDB+hL1ZMrjc8WQkRdqpaGqUaR6YI1ugu2hE9SAj0AYNoKHnb0qsNXDCFVdcLfas4TogGP0M09M8MOEpkOENuQ==", "search"=>"Drunk in Love", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["album_url", "https://i.scdn.co/image/a986d5fe5780115541b5c33e89ed66272e5d4c0f"], ["album", "BEYONCÉ [Platinum Edition]"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.3ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 4], ["created_at", "2019-05-29 14:56:56.877115"], ["updated_at", "2019-05-29 14:56:56.877115"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+Redirected to http://localhost:3000playlists/show
+Completed 302 Found in 163ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/playlists" for ::1 at 2019-05-29 10:57:35 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 62ms (Views: 51.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:57:36 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.4ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 60ms (Views: 45.4ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 10:57:38 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J2Wn+uFUito9EedO9keVCWU4y2Q9NKa49F7m52YhvygaijKKZeqqGZ4N09sq2G+bqFD81GQdGREN7Su8D2HAFw==", "search"=>"", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 0.1ms)
+
+
+  
+RestClient::BadRequest (400 Bad Request):
+  
+app/models/song.rb:9:in `search'
+app/controllers/playlistsongs_controller.rb:5:in `create'
+Started GET "/" for ::1 at 2019-05-29 10:57:43 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 189ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists" for ::1 at 2019-05-29 10:57:47 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:57:48 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 46ms (Views: 41.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 10:57:49 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7AWAs8MUyY3gBtls3q2yQiDK17jl5AhKS15hNTz1XtnR6hXDR6rpTkMa7fkCMkjQ7aLgCLzNt+Oy7axuVbUh5g==", "search"=>"", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.1ms)
+
+
+  
+RestClient::BadRequest (400 Bad Request):
+  
+app/models/song.rb:9:in `search'
+app/controllers/playlistsongs_controller.rb:5:in `create'
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 10:58:02 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vcSGXRzR5xYRGBZVLgGbR7hDtyE7fPuMiZiWhgORY4IMVFk+zsJ5m70rZyY39sSDM+3+J15Tc/8OwDNas1O+PQ==", "search"=>"The Night We Met", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "The Night We Met"], ["artist", "Lord Huron"], ["album_url", "https://i.scdn.co/image/c96ae980f06a58205ce0cf807eb58241cee8af8c"], ["album", "Strange Trails"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 2], ["created_at", "2019-05-29 14:58:02.777749"], ["updated_at", "2019-05-29 14:58:02.777749"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+Redirected to http://localhost:3000playlists/show
+Completed 302 Found in 156ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-29 10:58:49 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 175ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists" for ::1 at 2019-05-29 10:58:54 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 43ms (Views: 35.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 10:58:57 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.3ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 52ms (Views: 39.6ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 10:59:03 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mJHhlXwPUoxheTzaqVO6yV/falRUIulyEXGWrN5s17ClfnTl+LFyT8JlCE91zEBbkrdd5A0LVtvowlv3tyyojw==", "search"=>"Imagine", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "imagine"], ["artist", "Ariana Grande"], ["album_url", "https://i.scdn.co/image/00526f426e60dfb890f96b90160e39f9017a1eaa"], ["album", "thank u, next"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 5], ["created_at", "2019-05-29 14:59:03.565971"], ["updated_at", "2019-05-29 14:59:03.565971"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+Redirected to http://localhost:3000playlists/show
+Completed 302 Found in 121ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:00:23 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 50ms (Views: 35.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 11:00:40 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EjzCCfGcbvH9xrwfbUPlgGXpxiIR0z5SJ3UT5SeRB2GjrB1qI4/wfFH1zWx0tLpE7kePJHT8tiGgLbY5l1Pa3g==", "search"=>"Rockstar", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.7ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "rockstar (feat. 21 Savage)"], ["artist", "Post Malone"], ["album_url", "https://i.scdn.co/image/77eb7c17cafe5502589602bd799134625caeb6f3"], ["album", "beerbongs & bentleys"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.3ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 3], ["created_at", "2019-05-29 15:00:40.865800"], ["updated_at", "2019-05-29 15:00:40.865800"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Redirected to 
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 4.4ms)
+
+
+  
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["LIMIT", 11]]
+  ↳ /Users/yasminehartung/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+NoMethodError (undefined method `playlists/show_url' for #<PlaylistsongsController:0x00007fb9df262578>
+Did you mean?  playlists_url):
+  
+app/controllers/playlistsongs_controller.rb:15:in `create'
+Started GET "/playlists" for ::1 at 2019-05-29 11:01:42 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2019-05-29 11:01:44 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (4.2ms)
+  Rendered /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.6ms)
+  Rendered /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-05-29 11:02:28 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 203ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:02:33 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 45ms (Views: 32.7ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 11:02:35 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z2mTIICy1U1HT6xd4QX/t2J7k+gCMAj4FVtostaYYG5ahgZQBAz1juRTmMg9mgUlrxOkWFsZt1Hs6KXpv9gfUQ==", "search"=>"", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 0.2ms)
+
+
+  
+RestClient::BadRequest (400 Bad Request):
+  
+app/models/song.rb:9:in `search'
+app/controllers/playlistsongs_controller.rb:5:in `create'
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 11:02:48 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"15pkMEXPi5EldT2nzNGAJdYTaw0OklpVIwn6u7980nhmCrtTl9wVHIlGTNTVJt/hXb0iC2u90iakUV9nD74Pxw==", "search"=>"Crazy in Love", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "Crazy In Love (feat. Jay-Z)"], ["artist", "Beyoncé"], ["album_url", "https://i.scdn.co/image/58ce427aaf12cf21f56be209216b0fb2ac0550f3"], ["album", "Dangerously In Love"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.4ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 1], ["created_at", "2019-05-29 15:02:48.286102"], ["updated_at", "2019-05-29 15:02:48.286102"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 198ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:02:48 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 4], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/playlistsongs/9" for ::1 at 2019-05-29 11:03:05 -0400
+Processing by PlaylistsongsController#delete as HTML
+  Parameters: {"authenticity_token"=>"7aSazTYexk8fsnQpyRQxMkNTHCdjP+iGzQlMMw+3ukpcNEWu5A1YwrOBBVrQ4272yP1VIQYQYPVKUenvv3Vn9Q==", "id"=>"9"}
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:20
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:21
+  [1m[36mPlaylistsong Destroy (2.9ms)[0m  [1m[31mDELETE FROM "playlistsongs" WHERE "playlistsongs"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/playlistsongs_controller.rb:22
+Redirected to http://localhost:3000playlists/2
+Completed 302 Found in 6ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/playlists" for ::1 at 2019-05-29 11:03:20 -0400
+Processing by PlaylistsController#index as HTML
+  Rendering playlists/index.html.erb within layouts/application
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT "playlists".* FROM "playlists"[0m
+  ↳ app/views/playlists/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/index.html.erb:5
+  Rendered playlists/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:03:22 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (1.4ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 2], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 51ms (Views: 46.2ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/playlistsongs/10" for ::1 at 2019-05-29 11:04:02 -0400
+Processing by PlaylistsongsController#delete as HTML
+  Parameters: {"authenticity_token"=>"E9zLoRyKhmGeaVoBsJoGPdjEX9CS8tjd9ep2b66vnDaEAoH46lAF+BFuKeOwvkadlQR+hgBpLUBcUr+VI55XHQ==", "id"=>"10"}
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:21
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[36mPlaylistsong Destroy (0.9ms)[0m  [1m[31mDELETE FROM "playlistsongs" WHERE "playlistsongs"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/playlistsongs_controller.rb:23
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 14ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:04:02 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 5], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 5], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mCACHE Playlistsong Load (0.0ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 5], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 39ms (Views: 34.0ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/playlistsongs/11" for ::1 at 2019-05-29 11:05:02 -0400
+Processing by PlaylistsongsController#delete as HTML
+  Parameters: {"authenticity_token"=>"IUYyWycYayjBlV4UC7i0Y+neBpwe5gR2/TGBX3MsuO+Q1u049Qv1pW2mL2cST+unYnBPmnvJjAV6aSSDw+5lUA==", "id"=>"11"}
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:21
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[36mPlaylistsong Destroy (0.9ms)[0m  [1m[31mDELETE FROM "playlistsongs" WHERE "playlistsongs"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/playlistsongs_controller.rb:23
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 3960ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:05:06 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 3], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 39ms (Views: 33.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/playlistsongs/2" for ::1 at 2019-05-29 11:05:27 -0400
+Processing by PlaylistsongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EyphVbn3x2SWYXzm50t1TMFkJyhAL2SuWJkVQhUFDfSiur42a+RZ6TpSDZX+vCqISspuLiUA7N3fwbCepcfQSw==", "search"=>"Princes", "commit"=>"Add Song to Playlist", "id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:4
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "Two Princes"], ["artist", "Spin Doctors"], ["album_url", "https://i.scdn.co/image/520c026bee959fbe868424b9c4506cf33ebc59e2"], ["album", "Pocket Full Of Kryptonite"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[36mPlaylistsong Create (0.3ms)[0m  [1m[32mINSERT INTO "playlistsongs" ("playlist_id", "song_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["playlist_id", 2], ["song_id", 7], ["created_at", "2019-05-29 15:05:27.519350"], ["updated_at", "2019-05-29 15:05:27.519350"]]
+  ↳ app/controllers/playlistsongs_controller.rb:7
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/playlistsongs_controller.rb:7
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 121ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:05:27 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 3], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mPlaylistsong Load (0.4ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 7], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 80ms (Views: 77.3ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/playlistsongs/14" for ::1 at 2019-05-29 11:05:29 -0400
+Processing by PlaylistsongsController#delete as HTML
+  Parameters: {"authenticity_token"=>"y315z+WO/suP0RgFkbL93sjxY2zV3lAjsoiaE6SCK8167aasN51gRiPiaXaIRaIaQ18qarDx2FA10D/PFED2cg==", "id"=>"14"}
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:21
+  [1m[36mPlaylist Load (0.1ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlistsongs_controller.rb:22
+  [1m[36mPlaylistsong Destroy (2.4ms)[0m  [1m[31mDELETE FROM "playlistsongs" WHERE "playlistsongs"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/playlistsongs_controller.rb:23
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/playlists/2" for ::1 at 2019-05-29 11:05:29 -0400
+Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.3ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/playlists_controller.rb:52
+  Rendering playlists/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:2
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" INNER JOIN "playlistsongs" ON "songs"."id" = "playlistsongs"."song_id" WHERE "playlistsongs"."playlist_id" = ?[0m  [["playlist_id", 2]]
+  ↳ app/views/playlists/show.html.erb:9
+  [1m[36mPlaylistsong Load (0.1ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 3], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  [1m[36mPlaylistsong Load (0.2ms)[0m  [1m[34mSELECT  "playlistsongs".* FROM "playlistsongs" WHERE "playlistsongs"."playlist_id" = ? AND "playlistsongs"."song_id" = ? LIMIT ?[0m  [["playlist_id", 2], ["song_id", 1], ["LIMIT", 1]]
+  ↳ app/views/playlists/show.html.erb:11
+  Rendered playlists/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 0.9ms)
+
+

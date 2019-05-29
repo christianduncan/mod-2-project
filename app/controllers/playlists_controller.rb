@@ -15,25 +15,33 @@ class PlaylistsController < ApplicationController
         redirect_to @playlist
     end
 
-    def add_song
-        
-        @playlist = find_playlist
-        @song = Song.search(params[:search])
-        if @song[0]
-            Playlistsong.create(playlist_id: @playlist.id, song_id: @song[0].id)
-            flash[:notice] = "Song Added to Playlist"
-        else
-            flash[:notice] = "Could not find song"
-        
-        end
-        @songs = @playlist.songs 
+    
 
-        render :show
+    def edit
+        @playlist = find_playlist
+        @users = User.all
+
+    end
+
+    def update
+        @playlist = find_playlist
+        @playlist.update(playlist_params)
+
+        redirect_to @playlist
+
+    end
+
+    def destroy
+        @playlist = find_playlist
+        @playlist.destroy
+
+        redirect_to playlists_path
     end
 
     def show
         @playlist = find_playlist
         @songs = @playlist.songs
+       
     end
 
 
