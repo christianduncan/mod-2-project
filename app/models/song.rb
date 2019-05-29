@@ -18,7 +18,6 @@ class Song < ApplicationRecord
     def song_preview
         song = RSpotify::Track.find(self.spotify_id)
         song.preview_url
-
     end 
 
     

@@ -2,15 +2,13 @@
 
 <h2>Artist: <%=@song.artist%></h2>
 
-<%= image_tag("#{@song.album_url}",  alt: "like", class: "like_image_for_index") %>
+<%= image_tag("#{@song.album_url}",  alt: "like", class: "like_image_for_index") %> <br>
 <%if @song.song_preview != nil %>
 <audio controls>
 <source src=<%=@song.song_preview%> controls>
 </audio>
 <%else%>
 <%end%>
-
-
 
 <h2>Album: <%=@song.album%></h2>
 
