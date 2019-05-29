@@ -1,4 +1,10 @@
 <h1>Welcome to Hotify!</h1>
+
+<%if flash[:notice]%>
+  <%="#{flash[:notice]}"%>
+<% end %>
+
+
 <h3 class="rainbow">Check out what our users have been listening to lately: </h3>
 <%Song.all.each do |song|%>
 <%= image_tag("#{song.album_url}",  alt: "like", class: "like_image_for_index") %>
