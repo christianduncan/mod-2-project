@@ -1,6 +1,24 @@
+<style>
+.button {
+  background-color: rgb(87, 87, 87);
+  border: none;
+  color: pink;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  float:  right;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+
+
 <h1>All Playlists</h1>
 
-<%=button_to "Create New Playlist", new_playlist_path, method: :get %>
+<%=button_to "Create New Playlist", new_playlist_path, method: :get, class: "button" %>
 
 <ul>
 <%@playlists.each do |playlist|%>

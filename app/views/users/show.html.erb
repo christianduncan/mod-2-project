@@ -1,3 +1,23 @@
+
+
+<style>
+.button {
+  background-color: rgb(87, 87, 87);
+  border: none;
+  color: pink;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  float:  right;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+
+
 <h1 class="rainbow"><%=@user.username.capitalize%>'s Hotify Profile</h1>
 <div>
 
@@ -9,9 +29,13 @@
 <%= button_to "Delete #{@user.username}",@user,method: 'delete'%> <br>
 <% end %>
 
+<div>
+<%= button_to "Edit #{@user.username.capitalize}'s Profile", edit_user_path(@user), method: 'get',class: "button"%>
+<%= button_to "Delete #{@user.username.capitalize}'s Profile", @user , method: 'delete',class: "button" %> 
 </div>
+
 <%@user.playlists.each do |playlist|%>
-<h3>Playlist "<%=link_to "#{playlist.name}",playlist_path(playlist)%>"</h3>
+<h3 class="rainbow">Playlist "<%=link_to "#{playlist.name}",playlist_path(playlist)%>"</h3>
 <%= image_tag("#{playlist.songs.last.album_url}",  alt: "like", class: "like_image_for_index") %>
 <h3>By: <%="#{@user.username}"%></h3>
 <%end%>
