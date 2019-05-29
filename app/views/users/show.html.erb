@@ -19,6 +19,15 @@
 
 
 <h1 class="rainbow"><%=@user.username.capitalize%>'s Hotify Profile</h1>
+<div>
+
+<%if flash[:notice]%>
+  <%="#{flash[:notice]}"%>
+<% end %>
+<%if session[:user_id] == @user.id%>
+<%= button_to "Edit #{@user.username}",edit_user_path(@user),method: 'get'%>
+<%= button_to "Delete #{@user.username}",@user,method: 'delete'%> <br>
+<% end %>
 
 <div>
 <%= button_to "Edit #{@user.username.capitalize}'s Profile", edit_user_path(@user), method: 'get',class: "button"%>

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :authorized, only: [:new, :create]
 
     def index
         @users = User.all 
@@ -11,6 +12,9 @@ class UsersController < ApplicationController
     #create user
     def create 
         @user = User.create(user_params)
+        
+        session[:username] = @user.username
+        flash[:notice] = "Welcome!"
         redirect_to user_path(@user)
 
     end 
@@ -18,6 +22,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        
         @followers = @user.followers 
         @followees = @user.followees 
         @not_following = @user.not_following
@@ -58,6 +63,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:username)
+        params.require(:user).permit(:username, :password)
     end 
 end
