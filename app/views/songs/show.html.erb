@@ -7,3 +7,11 @@
 
 
 <h2>Album: <%=@song.album%></h2>
+
+<h3>Playlists With This Song</h3>
+
+<ul>
+<%@playlists.each do |playlist|%>
+  <li><%= link_to "#{playlist.name} - #{playlist.user.username}", playlist %></li>
+<% end %>
+</ul>

@@ -17,6 +17,7 @@ class SongsController < ApplicationController
 
     def show
         @song = find_song
+        @playlists = @song.playlists
     end
 
     
