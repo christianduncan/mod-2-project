@@ -3,7 +3,8 @@ class PlaylistsongsController < ApplicationController
     def create
         @playlist = Playlist.find(params[:id])
         @song = Song.search(params[:search])
-        if @song[0]
+        
+        if @song
             Playlistsong.create(playlist_id: @playlist.id, song_id: @song[0].id)
             flash[:notice] = "Song Added to Playlist"
         else
