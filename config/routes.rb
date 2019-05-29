@@ -29,4 +29,10 @@ Rails.application.routes.draw do
   post "/playlistsongs/:id", to: "playlistsongs#create", as: "add_song"
   delete "playlistsongs/:id", to: "playlistsongs#delete"
 
+
+  # Sessions Routes
+
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  post "/logout", to: "sessions#destroy"
 end

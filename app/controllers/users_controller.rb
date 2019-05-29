@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+    skip_before_action :authorized, only: [:new, :create]
+    
     def index
         @users = User.all 
     end
@@ -11,6 +12,8 @@ class UsersController < ApplicationController
     #create user
     def create 
         @user = User.create(user_params)
+        session[:username] = @user.username
+        flash[:notice] = "Welcome!"
         redirect_to user_path(@user)
 
     end 
