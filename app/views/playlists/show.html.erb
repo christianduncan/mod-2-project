@@ -1,5 +1,5 @@
 <h1>Playlist "<%="#{@playlist.name}"%>"</h1>
-<h3>By: <%="#{@playlist.user.username}"%></h3>
+<h3>By: <%=link_to @playlist.user.username,user_path(@playlist.user)%></h3>
 
 <%if flash[:notice]%>
   <%="#{flash[:notice]}"%>
