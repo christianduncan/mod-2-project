@@ -2,7 +2,16 @@
 <div>
 <%= button_to "Delete #{@user.username}",@user,method: 'delete'%> <br>
 <%= button_to "Edit #{@user.username}",edit_user_path(@user),method: 'get'%>
+
 </div>
+<%@user.playlists.each do |playlist|%>
+<h3>Playlist "<%=link_to "#{playlist.name}",playlist_path(playlist)%>"</h3>
+<%= image_tag("#{playlist.songs.last.album_url}",  alt: "like", class: "like_image_for_index") %>
+<h3>By: <%="#{@user.username}"%></h3>
+<%end%>
+<ul>
+
+
 <h2>Your followers are</h2>
 <% @followers.each do |follower| %>
   <p><%= follower.username %></p>
