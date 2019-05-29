@@ -8,10 +8,13 @@
 <ul>
 <%@songs.each do |song|%>
   <li><%= link_to "#{song.name} - #{song.artist}", song %></li>
-  <%=button_to "Remove Song from Playlist", "/playlistsongs/#{Playlistsong.find_by(playlist_id: @playlist.id, song_id: song.id).id}", method: :delete %>
+  <%if session[:user_id] == @playlist.user.id%>
+   <%=button_to "Remove Song from Playlist", "/playlistsongs/#{Playlistsong.find_by(playlist_id: @playlist.id, song_id: song.id).id}", method: :delete %>
+  <% end %>
 <% end %>
 </ul>
 
+<%if session[:user_id] == @playlist.user.id%>
 <h3>Search for Songs to Add to Playlist</h3>
 <%= form_tag( add_song_path(@playlist.id), method: :post) do %>
   <%= label_tag(:search, "Song name:") %>
@@ -20,3 +23,4 @@
 <% end %>
 
 <%=button_to "Delete Playlist", "/playlists/#{@playlist.id}", method: :delete %>
+<% end %>

@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        
         @followers = @user.followers 
         @followees = @user.followees 
         @not_following = @user.not_following
