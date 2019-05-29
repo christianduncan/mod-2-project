@@ -7015,6 +7015,7 @@ Completed 200 OK in 223ms (Views: 14.5ms | ActiveRecord: 2.0ms)
 >>>>>>> master
 
 
+<<<<<<< HEAD
 Started GET "/users/3" for ::1 at 2019-05-28 15:21:14 -0400
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/christian/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
@@ -7078,10 +7079,57 @@ RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
 app/models/song.rb:10:in `search'
 app/controllers/songs_controller.rb:5:in `index'
 Started GET "/songs" for ::1 at 2019-05-28 15:25:02 -0400
+=======
+Started GET "/" for ::1 at 2019-05-28 15:29:23 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 376ms (Views: 190.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 15:29:29 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 39ms (Views: 29.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=Drunk+in+Love&commit=Search" for ::1 at 2019-05-28 15:29:43 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Drunk in Love", "commit"=>"Search"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? LIMIT ?[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/song.rb:14
+  [1m[36mSong Create (0.9ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["created_at", "2019-05-28 19:29:43.662022"], ["updated_at", "2019-05-28 19:29:43.662022"]]
+  ↳ app/models/song.rb:14
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/song.rb:14
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 333ms (Views: 14.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-28 15:34:15 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 398ms (Views: 211.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 15:34:21 -0400
+>>>>>>> 7da2949ac05c28e214553f5dd1b06021bdf84709
 Processing by SongsController#index as HTML
   Rendering songs/index.html.erb within layouts/application
   [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
   ↳ app/views/songs/index.html.erb:14
+<<<<<<< HEAD
   Rendered songs/index.html.erb within layouts/application (11.8ms)
 Completed 200 OK in 114ms (Views: 101.6ms | ActiveRecord: 0.2ms)
 
@@ -7110,6 +7158,39 @@ Started GET "/songs?utf8=%E2%9C%93&search=ymca&commit=Search" for ::1 at 2019-05
 Processing by SongsController#index as HTML
   Parameters: {"utf8"=>"✓", "search"=>"ymca", "commit"=>"Search"}
 Completed 500 Internal Server Error in 81ms (ActiveRecord: 0.0ms)
+=======
+  Rendered songs/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 35ms (Views: 25.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-28 15:52:15 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 471ms (Views: 278.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 15:52:19 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 47ms (Views: 28.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=Rockstar&commit=Search" for ::1 at 2019-05-28 15:52:31 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Rockstar", "commit"=>"Search"}
+Started GET "/songs?utf8=%E2%9C%93&search=Rockstar&commit=Search" for ::1 at 2019-05-28 16:00:33 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Rockstar", "commit"=>"Search"}
+Completed 500 Internal Server Error in 148ms (ActiveRecord: 0.0ms)
+>>>>>>> 7da2949ac05c28e214553f5dd1b06021bdf84709
 
 
   
@@ -7117,6 +7198,7 @@ RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
   
 app/models/song.rb:10:in `search'
 app/controllers/songs_controller.rb:5:in `index'
+<<<<<<< HEAD
 Started GET "/songs" for ::1 at 2019-05-28 15:27:36 -0400
 Processing by SongsController#index as HTML
   Rendering songs/index.html.erb within layouts/application
@@ -7193,11 +7275,31 @@ Completed 200 OK in 24ms (Views: 20.0ms | ActiveRecord: 0.2ms)
 
 
 Started GET "/songs/1" for ::1 at 2019-05-28 15:35:57 -0400
+=======
+Started GET "/" for ::1 at 2019-05-28 16:00:37 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 362ms (Views: 179.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 16:00:42 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (2.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 52ms (Views: 45.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/songs/1" for ::1 at 2019-05-28 16:00:45 -0400
+>>>>>>> 7da2949ac05c28e214553f5dd1b06021bdf84709
 Processing by SongsController#show as HTML
   Parameters: {"id"=>"1"}
   [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   ↳ app/controllers/songs_controller.rb:22
   Rendering songs/show.html.erb within layouts/application
+<<<<<<< HEAD
   Rendered songs/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 38ms (Views: 33.8ms | ActiveRecord: 0.2ms)
 
@@ -7831,10 +7933,174 @@ Completed 200 OK in 195ms (Views: 22.7ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/songs" for ::1 at 2019-05-28 16:16:34 -0400
+=======
+  Rendered songs/show.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Song:0x00007f9c72927398>):
+    1: <h1><%=@song.name%></h1>
+    2: 
+    3: 
+    4: <%= image_tag("#{@song.album.images[1][:url]}",  alt: "like", class: "like_image_for_index") %>
+    5: 
+    6: <h2>Artist: <%=@song.artist%></h2>
+    7: <h2>Album: <%=@song.album.name%></h2>
+  
+app/views/songs/show.html.erb:4:in `_app_views_songs_show_html_erb___3116268756929116421_70154956910940'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddAlbumUrlToSong (20190528200149)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (9.2ms)[0m  [1m[35mALTER TABLE "songs" ADD "album_url" varchar[0m
+  ↳ db/migrate/20190528200149_add_album_url_to_song.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190528200149"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "follows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followee_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlistsongs"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "playlistsongs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "playlist_id" integer, "song_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "songs"[0m
+  ↳ db/schema.rb:36
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "songs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "artist" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "album_url" varchar)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:44
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:44
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528200149)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528131211),
+(20190528145905),
+(20190528131302),
+(20190528131338),
+(20190528131355),
+(20190528131429);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 20:03:54.464517"], ["updated_at", "2019-05-28 20:03:54.464517"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "follows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followee_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlistsongs"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "playlistsongs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "playlist_id" integer, "song_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "songs"[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "songs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "artist" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "album_url" varchar)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:44
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:44
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528200149)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528131211),
+(20190528145905),
+(20190528131302),
+(20190528131338),
+(20190528131355),
+(20190528131429);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 20:03:54.525027"], ["updated_at", "2019-05-28 20:03:54.525027"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-05-28 20:03:54.527363"], ["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+Started GET "/songs" for ::1 at 2019-05-28 16:05:42 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+>>>>>>> 7da2949ac05c28e214553f5dd1b06021bdf84709
 Processing by SongsController#index as HTML
   Rendering songs/index.html.erb within layouts/application
   [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
   ↳ app/views/songs/index.html.erb:14
+<<<<<<< HEAD
   Rendered songs/index.html.erb within layouts/application (3.5ms)
   Rendered layouts/_navigation_links.html.erb (0.4ms)
   Rendered layouts/_navigation.html.erb (2.5ms)
@@ -10033,5 +10299,829 @@ Processing by UsersController#index as HTML
   Rendered layouts/_navigation.html.erb (3.5ms)
   Rendered layouts/_messages.html.erb (0.8ms)
 Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.1ms)
+
+
+=======
+  Rendered songs/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 247ms (Views: 230.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2019-05-28 16:05:43 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 214ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=Rockstar&commit=Search" for ::1 at 2019-05-28 16:06:07 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Rockstar", "commit"=>"Search"}
+Started GET "/" for ::1 at 2019-05-28 16:08:08 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 403ms (Views: 218.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 16:08:14 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 41ms (Views: 28.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=Crazy+in+Love&commit=Search" for ::1 at 2019-05-28 16:08:19 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Crazy in Love", "commit"=>"Search"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? LIMIT ?[0m  [["name", "Crazy In Love (feat. Jay-Z)"], ["artist", "Beyoncé"], ["album_url", "https://i.scdn.co/image/58ce427aaf12cf21f56be209216b0fb2ac0550f3"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:14
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/song.rb:14
+  [1m[36mSong Create (1.1ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at", "album_url") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Crazy In Love (feat. Jay-Z)"], ["artist", "Beyoncé"], ["created_at", "2019-05-28 20:08:23.978593"], ["updated_at", "2019-05-28 20:08:23.978593"], ["album_url", "https://i.scdn.co/image/58ce427aaf12cf21f56be209216b0fb2ac0550f3"]]
+  ↳ app/models/song.rb:14
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/song.rb:14
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4460ms (Views: 56.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/songs/1" for ::1 at 2019-05-28 16:08:27 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Song:0x00007fdfa85376d8>
+Did you mean?  album_url):
+    4: <%= image_tag("#{@song.album_url}",  alt: "like", class: "like_image_for_index") %>
+    5: 
+    6: <h2>Artist: <%=@song.artist%></h2>
+    7: <h2>Album: <%=@song.album.name%></h2>
+  
+app/views/songs/show.html.erb:7:in `_app_views_songs_show_html_erb__3106111144372338436_70299289286880'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+Migrating to AddAlbumUrlToSong (20190528200149)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asongs" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "artist" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "album_url" varchar DEFAULT NULL)[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "asongs" ("id","name","artist","created_at","updated_at","album_url")
+                     SELECT "id","name","artist","created_at","updated_at","album_url" FROM "songs"[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "songs"[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "songs" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "artist" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "songs" ("id","name","artist","created_at","updated_at")
+                     SELECT "id","name","artist","created_at","updated_at" FROM "asongs"[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "asongs"[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190528200149"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddAlbumUrlToSong (20190528200149)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "songs" ADD "album_url" varchar[0m
+  ↳ db/migrate/20190528200149_add_album_url_to_song.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "songs" ADD "album" varchar[0m
+  ↳ db/migrate/20190528200149_add_album_url_to_song.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190528200149"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/songs" for ::1 at 2019-05-28 16:11:14 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 244ms (Views: 229.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-28 16:11:14 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 313ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=Drunk+in+Love&commit=Search" for ::1 at 2019-05-28 16:11:27 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Drunk in Love", "commit"=>"Search"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["album_url", "https://i.scdn.co/image/a986d5fe5780115541b5c33e89ed66272e5d4c0f"], ["album", "BEYONCÉ [Platinum Edition]"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/song.rb:14
+  [1m[36mSong Create (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at", "album_url", "album") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["created_at", "2019-05-28 20:11:36.753563"], ["updated_at", "2019-05-28 20:11:36.753563"], ["album_url", "https://i.scdn.co/image/a986d5fe5780115541b5c33e89ed66272e5d4c0f"], ["album", "BEYONCÉ [Platinum Edition]"]]
+  ↳ app/models/song.rb:14
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/song.rb:14
+  Rendering songs/index.html.erb within layouts/application
+  Rendered songs/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 9412ms (Views: 55.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=Drunk+in+Love&commit=Search" for ::1 at 2019-05-28 16:11:40 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Drunk in Love", "commit"=>"Search"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."name" = ? AND "songs"."artist" = ? AND "songs"."album_url" = ? AND "songs"."album" = ? LIMIT ?[0m  [["name", "Drunk in Love"], ["artist", "Beyoncé"], ["album_url", "https://i.scdn.co/image/a986d5fe5780115541b5c33e89ed66272e5d4c0f"], ["album", "BEYONCÉ [Platinum Edition]"], ["LIMIT", 1]]
+  ↳ app/models/song.rb:14
+Started GET "/songs" for ::1 at 2019-05-28 16:11:51 -0400
+Started GET "/songs" for ::1 at 2019-05-28 16:11:51 -0400
+  Rendering songs/index.html.erb within layouts/application
+Processing by SongsController#index as HTML
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (1.4ms)
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (1.6ms)
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 10722ms (Views: 64.6ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 65ms (Views: 63.5ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 68ms (Views: 65.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/songs/1" for ::1 at 2019-05-28 16:11:54 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    4: <%= image_tag("#{@song.album_url}",  alt: "like", class: "like_image_for_index") %>
+    5: 
+    6: <h2>Artist: <%=@song.artist%></h2>
+    7: <h2>Album: <%=@song.album.name%></h2>
+  
+app/views/songs/show.html.erb:7:in `_app_views_songs_show_html_erb__3514014126053368127_70099313210320'
+Started GET "/songs/1" for ::1 at 2019-05-28 16:12:10 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/songs/1" for ::1 at 2019-05-28 16:15:59 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (183.3ms)
+Completed 500 Internal Server Error in 188ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `song' for #<#<Class:0x00007f828aef4ea8>:0x00007f828cf69620>
+Did you mean?  @song):
+    3: 
+    4: <%= image_tag("#{@song.album_url}",  alt: "like", class: "like_image_for_index") %>
+    5: 
+    6: <%= image_tag "#{song.album_url}" %>
+    7: 
+    8: <h2>Artist: <%=@song.artist%></h2>
+    9: <h2>Album: <%=@song.album%></h2>
+  
+app/views/songs/show.html.erb:6:in `_app_views_songs_show_html_erb__3514014126053368127_70099343724480'
+Started GET "/songs/1" for ::1 at 2019-05-28 16:16:09 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 38ms (Views: 35.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/songs/1" for ::1 at 2019-05-28 16:16:26 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 16:16:29 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/songs/1" for ::1 at 2019-05-28 16:16:31 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/songs/2" for ::1 at 2019-05-28 16:16:39 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/songs/2" for ::1 at 2019-05-28 16:16:58 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:22
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.1ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "follows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followee_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlistsongs"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "playlistsongs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "playlist_id" integer, "song_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "songs"[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "songs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "artist" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "album_url" varchar, "album" varchar)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:45
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:45
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528200149)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528131211),
+(20190528145905),
+(20190528131302),
+(20190528131338),
+(20190528131355),
+(20190528131429);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 20:18:32.553822"], ["updated_at", "2019-05-28 20:18:32.553822"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "follows" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followee_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists"[0m
+  ↳ db/schema.rb:22
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  ↳ db/schema.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlistsongs"[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "playlistsongs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "playlist_id" integer, "song_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "songs"[0m
+  ↳ db/schema.rb:36
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "songs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "artist" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "album_url" varchar, "album" varchar)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:45
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:45
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190528200149)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190528131211),
+(20190528145905),
+(20190528131302),
+(20190528131338),
+(20190528131355),
+(20190528131429);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-28 20:18:32.644294"], ["updated_at", "2019-05-28 20:18:32.644294"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-05-28 20:18:32.647349"], ["key", "environment"]]
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/yasminehartung/.rvm/gems/ruby-2.6.1/bin/rake:23
+>>>>>>> 7da2949ac05c28e214553f5dd1b06021bdf84709
+Started GET "/" for ::1 at 2019-05-28 18:44:02 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/christian/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddAlbumUrlToSong (20190528200149)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "songs" ADD "album_url" varchar[0m
+  ↳ db/migrate/20190528200149_add_album_url_to_song.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "songs" ADD "album" varchar[0m
+  ↳ db/migrate/20190528200149_add_album_url_to_song.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190528200149"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2019-05-28 18:44:46 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/christian/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (6.4ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 653ms (Views: 333.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-05-28 18:45:06 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (6.0ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 71ms (Views: 51.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-05-28 18:45:50 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_navigation.html.erb (7.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 346ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-28 18:46:09 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (14.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 52ms (Views: 41.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=back+to+back&commit=Search" for ::1 at 2019-05-28 18:46:22 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"back to back", "commit"=>"Search"}
+Started GET "/songs?utf8=%E2%9C%93&search=back+to+back&commit=Search" for ::1 at 2019-05-28 18:47:51 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/christian/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"back to back", "commit"=>"Search"}
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 0.0ms)
+
+
+  
+RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
+  
+app/models/song.rb:10:in `search'
+app/controllers/songs_controller.rb:5:in `index'
+Started GET "/songs" for ::1 at 2019-05-28 18:47:57 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (37.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 294ms (Views: 289.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/songs?utf8=%E2%9C%93&search=back+to+back+&commit=Search" for ::1 at 2019-05-28 18:48:03 -0400
+Processing by SongsController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"back to back ", "commit"=>"Search"}
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 0.0ms)
+
+
+  
+RSpotify::MissingAuthentication (RSpotify::MissingAuthentication):
+  
+app/models/song.rb:10:in `search'
+app/controllers/songs_controller.rb:5:in `index'
+Started GET "/users" for ::1 at 2019-05-28 18:48:28 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (8.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 56ms (Views: 41.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-05-28 18:48:31 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 85ms (Views: 81.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-05-28 18:48:35 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"spEQS0aTqkiXdQmY4Afu8lSlqoB4RAfa3s+pde0qrr3VtUh2gbC6WaqL7Ew7JmA6gA0jxQXacZDFDz3HlWdCIA==", "user"=>{"username"=>"christian"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "christian"], ["created_at", "2019-05-28 22:48:35.401770"], ["updated_at", "2019-05-28 22:48:35.401770"]]
+  ↳ app/controllers/users_controller.rb:13
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:13
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 8ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/8" for ::1 at 2019-05-28 18:48:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/models/user.rb:14
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 8]]
+  ↳ app/models/user.rb:14
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 8]]
+  ↳ app/views/users/show.html.erb:7
+  Rendered users/show.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 60ms (Views: 31.1ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/users/8/follow" for ::1 at 2019-05-28 19:30:14 -0400
+Processing by UsersController#follow as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"siWPpxw3IvTnb6lm/3FrkBVeJEEHoK5OGbeL2Yb3R1yP0Fc5oy0KBAZMB6eUSgIMaiiyZdPlkpFy7ZA2YWT/sQ==", "user"=>{"username"=>"yas"}, "commit"=>"Add Friend", "id"=>"8"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yas"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[36mFollow Create (1.1ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 8], ["followee_id", 2], ["created_at", "2019-05-28 23:30:14.515295"], ["updated_at", "2019-05-28 23:30:14.515295"]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 95ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/8" for ::1 at 2019-05-28 19:30:14 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/models/user.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 8]]
+  ↳ app/models/user.rb:14
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 8]]
+  ↳ app/views/users/show.html.erb:7
+  Rendered users/show.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_navigation.html.erb (7.5ms)
+  Rendered layouts/_messages.html.erb (3.4ms)
+Completed 200 OK in 104ms (Views: 95.0ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/users/8/follow" for ::1 at 2019-05-28 19:30:16 -0400
+Processing by UsersController#follow as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yIzcN3f4b6dZOarkAAjr12RMNSa6ctQfPPDOg9JHiE31eQSpyOJHV7gaBCVrM4JLGzqjAm436MBXqtVsNdQwoA==", "user"=>{"username"=>"jim"}, "commit"=>"Add Friend", "id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "jim"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[36mFollow Create (0.5ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "followee_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 8], ["followee_id", 3], ["created_at", "2019-05-28 23:30:16.208563"], ["updated_at", "2019-05-28 23:30:16.208563"]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 30ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/users/8" for ::1 at 2019-05-28 19:30:16 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/models/user.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 8]]
+  ↳ app/models/user.rb:14
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 8]]
+  ↳ app/views/users/show.html.erb:7
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 51ms (Views: 43.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-05-29 09:22:24 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/christian/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (12.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (5.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 590ms (Views: 308.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs" for ::1 at 2019-05-29 09:22:27 -0400
+Processing by SongsController#index as HTML
+  Rendering songs/index.html.erb within layouts/application
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  ↳ app/views/songs/index.html.erb:14
+  Rendered songs/index.html.erb within layouts/application (18.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 80ms (Views: 60.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for ::1 at 2019-05-29 09:22:28 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.1ms)
+  Rendered layouts/_navigation.html.erb (6.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 63ms (Views: 46.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/8" for ::1 at 2019-05-29 09:22:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/models/user.rb:14
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."followee_id" WHERE "follows"."follower_id" = ?[0m  [["follower_id", 8]]
+  ↳ app/models/user.rb:14
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "follows" ON "users"."id" = "follows"."follower_id" WHERE "follows"."followee_id" = ?[0m  [["followee_id", 8]]
+  ↳ app/views/users/show.html.erb:7
+  Rendered users/show.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 120ms (Views: 37.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2019-05-29 09:22:31 -0400
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 248ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-05-29 09:59:12 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/christian/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (20.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.0ms)
+  Rendered layouts/_navigation.html.erb (5.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 300ms (Views: 272.7ms | ActiveRecord: 3.3ms)
 
 
