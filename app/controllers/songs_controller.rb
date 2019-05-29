@@ -1,10 +1,16 @@
 class SongsController < ApplicationController
 
     def index
-    
-        @songs = Song.search(params[:search])
+        if params[:search]
+            @songs = Song.search(params[:search])
+            if !@songs
+                @songs = Song.all
+                flash[:notice] = "No song with that name was found"
+            end
         
-
+        else 
+            @songs = Song.all
+        end
     end
 
 
@@ -23,6 +29,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-        params.require(:song).permit(:name, :artist, :search)
+        params.require(:song).permit(:search)
     end
 end

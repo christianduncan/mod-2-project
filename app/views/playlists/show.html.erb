@@ -1,0 +1,22 @@
+<h1>Playlist "<%="#{@playlist.name}"%>"</h1>
+<h3>By: <%="#{@playlist.user.username}"%></h3>
+
+<%if flash[:notice]%>
+  <%="#{flash[:notice]}"%>
+<% end %>
+
+<ul>
+<%@songs.each do |song|%>
+  <li><%= link_to "#{song.name} - #{song.artist}", song %></li>
+  <%=button_to "Remove Song from Playlist", "/playlistsongs/#{Playlistsong.find_by(playlist_id: @playlist.id, song_id: song.id).id}", method: :delete %>
+<% end %>
+</ul>
+
+<h3>Search for Songs to Add to Playlist</h3>
+<%= form_tag( add_song_path(@playlist.id), method: :post) do %>
+  <%= label_tag(:search, "Song name:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Add Song to Playlist") %>
+<% end %>
+
+<%=button_to "Delete Playlist", "/playlists/#{@playlist.id}", method: :delete %>

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   
   
   
-
+  # Playlist Routes
+ 
+  resources :playlists
 
 
 
@@ -21,5 +23,10 @@ Rails.application.routes.draw do
 
 
   get "/songs/:id", to: "songs#show", as: "song"
+
+  # PlaylistSongs Routes
+
+  post "/playlistsongs/:id", to: "playlistsongs#create", as: "add_song"
+  delete "playlistsongs/:id", to: "playlistsongs#delete"
 
 end
