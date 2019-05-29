@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :authorized
     helper_method :current_user
     skip_before_action :authorized, only: :index
+    
     def index
         authorize_rspotify
     end
