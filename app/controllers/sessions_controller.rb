@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
         
         if @user
             session[:user_id] = @user.id
+            
             flash[:notice] = "Welcome Back!"
             redirect_to '/'
         else

@@ -4,9 +4,10 @@
 <%if flash[:notice]%>
   <%="#{flash[:notice]}"%>
 <% end %>
-
-<%= button_to "Delete #{@user.username}",@user,method: 'delete'%> <br>
+<%if session[:user_id] == @user.id%>
 <%= button_to "Edit #{@user.username}",edit_user_path(@user),method: 'get'%>
+<%= button_to "Delete #{@user.username}",@user,method: 'delete'%> <br>
+<% end %>
 
 </div>
 <%@user.playlists.each do |playlist|%>
