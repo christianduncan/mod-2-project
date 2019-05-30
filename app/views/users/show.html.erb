@@ -28,7 +28,7 @@
 
 <div>
 <%if session[:user_id] == @user.id%>
-<%= button_to "Edit #{@user.username.capitalize}'s Profile", edit_user_path(@user), method: 'get',class: "button"%>
+<%= button_to "Edit #{@user.username.capitalize}'s Profile", edit_user_path(@user), method: 'get',class: "button"%> <br><br><br>
 <%= button_to "Delete #{@user.username.capitalize}'s Profile", @user , method: 'delete',class: "button" %> 
 <% end %>
 </div>
@@ -40,7 +40,7 @@
 <%end%>
 <ul>
 
-
+<%if session[:user_id] == @user.id%>
 <h2>Your followers are</h2>
 <% @followers.each do |follower| %>
   <p><%= follower.username %></p>
@@ -58,4 +58,10 @@
     <%= f.hidden_field :username %>
     <%= f.submit "Add Friend" %>
   <% end %>
+<% end %>
+<% else %>
+<h2>They follow</h2>
+<% @followees.each do |followee| %>
+  <p><%= followee.username %></p>
+<% end %>
 <% end %>

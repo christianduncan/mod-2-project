@@ -17,6 +17,8 @@
  @import url(https://fonts.googleapis.com/css?family=Pacifico);
   @import url('https://fonts.googleapis.com/css?family=Anton');
 
+  @import url('https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+HK|Roboto+Condensed&display=swap');
+
   
 
 <style>
@@ -48,14 +50,14 @@
 
   h1,h2{
     color:rgb(37, 42, 49);
-    font-family: 'Pacifico',
+    font-family: 'Noto Sans HK', sans-serif;
     color:#212121;
   }
 
   .rainbow {
     
      /* Font options */
-    font-family: 'Pacifico',
+     font-family: 'Noto Sans HK', sans-serif;
     font-size:40px;
 
      /* Chrome, Safari, Opera */

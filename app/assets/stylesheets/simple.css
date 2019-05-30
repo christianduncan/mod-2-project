@@ -14,7 +14,7 @@ header {
   -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans HK', sans-serif;
 }
 ul.nav li {
   display: inline;
@@ -33,7 +33,7 @@ ul.nav li a {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans HK', sans-serif
   font-size: 14px;
   line-height: 20px;
 }
