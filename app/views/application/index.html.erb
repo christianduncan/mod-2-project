@@ -4,8 +4,12 @@
   <%="#{flash[:notice]}"%>
 <% end %>
 
+<h3>The lastest playlists from the people you follow:</h3>
+<%@friends.each do |friend|%>
+<%=link_to "#{friend.playlists.last.name} by #{friend.username}",playlist_path(friend.playlists.last)%> <br>
+<% end %>
 
-<h3 class="rainbow">Check out what our users have been listening to lately: </h3>
+<h3 class="rainbow">Check out what other users have been listening to lately: </h3>
 <%Song.all.each do |song|%>
 <%= image_tag("#{song.album_url}",  alt: "like", class: "like_image_for_index") %>
 <%end%>
