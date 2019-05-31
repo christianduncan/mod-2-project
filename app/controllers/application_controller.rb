@@ -5,8 +5,10 @@ class ApplicationController < ActionController::Base
     
     def index
         authorize_rspotify
-        @user = current_user
-        @friends = @user.followees
+        if logged_in?
+            @user = current_user
+            @friends = @user.followees
+        end
     end
 
 

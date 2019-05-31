@@ -4,9 +4,12 @@
   <%="#{flash[:notice]}"%>
 <% end %>
 
+<% if current_user %>
+
 <h3>The lastest playlists from the people you follow:</h3>
 <%@friends.each do |friend|%>
-<li><%=link_to "#{friend.playlists.last.name} by #{friend.username}",playlist_path(friend.playlists.last)%></li> <br>
+<li><%=link_to "#{friend.playlists.last.name} by #{friend.username.capitalize}",playlist_path(friend.playlists.last)%></li> <br>
+<% end %>
 <% end %>
 
 <h3 class="rainbow">Check out what other users have been listening to lately: </h3>

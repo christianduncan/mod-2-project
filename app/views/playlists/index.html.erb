@@ -22,7 +22,7 @@
 
 <ul>
 <%@playlists.each do |playlist|%>
-  <li><%= link_to "#{playlist.name} - #{playlist.user.username}", playlist %></li>
+  <li><%= link_to "#{playlist.name} - #{playlist.user.username.capitalize}", playlist %></li>
 <% end %>
 </ul>
 

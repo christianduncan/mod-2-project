@@ -13,7 +13,8 @@ class User < ApplicationRecord
     def not_following
         @following = self.followees
         @users = User.all
-        @not_following = @users - @following
+        @not_following = @users - @following - [self]
+        
     end
         
         
